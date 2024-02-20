@@ -35,7 +35,7 @@ const button = StyleSheet.create({
 		alignItems: "center",
 	},
 	light: {
-		backgroundColor: "#c9c9c9",
+		backgroundColor: "#e9e9e9",
 	},
 	dark: {
 		backgroundColor: "#1f1f1f",

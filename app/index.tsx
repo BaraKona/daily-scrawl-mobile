@@ -53,7 +53,7 @@ export default function Page() {
 export const lightStyle = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#d0d0d0",
+		backgroundColor: "#f0f0f0",
 		color: "#151414",
 	},
 	text: {
@@ -67,6 +67,6 @@ export const darkStyle = StyleSheet.create({
 		backgroundColor: "#151414",
 	},
 	text: {
-		color: "#d0d0d0",
+		color: "#808080",
 	},
 });

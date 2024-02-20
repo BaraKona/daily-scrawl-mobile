@@ -19,7 +19,7 @@ export const Navbar = () => {
 						<TablerIcon
 							name="help-hexagon"
 							size={24}
-							color={colorScheme === "dark" ? "#d0d0d0" : "#151414"}
+							color={colorScheme === "dark" ? "#808080" : "#151414"}
 						/>
 					}
 					onPress={() => console.log("clicked")}
