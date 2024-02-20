@@ -3,7 +3,6 @@ import { Text, View, StyleSheet } from "react-native";
 import { getLocalData } from "../utils/getLocalData";
 import { useCallback, useEffect } from "react";
 import { storeLocalData } from "../utils/storeLocalData";
-import { Navbar } from "./components/navigation/Navbar";
 import { useFonts } from "expo-font";
 import { SplashScreen } from "expo-router";
 import { useColorScheme } from "nativewind";
@@ -41,7 +40,6 @@ export default function Page() {
 				colorScheme === "dark" ? darkStyle.container : lightStyle.container
 			}
 		>
-			<Navbar />
 			<Text style={colorScheme === "dark" ? darkStyle.text : lightStyle.text}>
 				Hello!
 			</Text>

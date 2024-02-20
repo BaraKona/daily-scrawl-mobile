@@ -4,6 +4,7 @@ import TablerIcon from "../icons/TablerIcon";
 import { useColorScheme } from "nativewind";
 import { StyleSheet } from "react-native";
 import { DailyScrawlIcon } from "../icons/DailyScrawlIcon";
+import { Link } from "expo-router";
 
 export const Navbar = () => {
 	const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -14,16 +15,18 @@ export const Navbar = () => {
 				<DailyScrawlIcon colorScheme={colorScheme} />
 			</View>
 			<View style={navigation.container}>
-				<NavigationButton
-					icon={
-						<TablerIcon
-							name="help-hexagon"
-							size={24}
-							color={colorScheme === "dark" ? "#808080" : "#151414"}
-						/>
-					}
-					onPress={() => console.log("clicked")}
-				/>
+				<Link href="/introduction" asChild>
+					<NavigationButton
+						icon={
+							<TablerIcon
+								name="help-hexagon"
+								size={24}
+								color={colorScheme === "dark" ? "#808080" : "#151414"}
+							/>
+						}
+						onPress={() => console.log("clicked")}
+					/>
+				</Link>
 				<NavigationButton
 					icon={
 						colorScheme === "dark" ? (

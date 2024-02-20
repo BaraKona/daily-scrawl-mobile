@@ -1,4 +1,3 @@
-import { useColorScheme } from "nativewind";
 import Svg, { Path, G } from "react-native-svg";
 import { StyleSheet } from "react-native";
 
