@@ -1,14 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { getLocalData } from "../utils/getLocalData";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { storeLocalData } from "../utils/storeLocalData";
 import { Navbar } from "./components/navigation/Navbar";
 import { useFonts } from "expo-font";
 import { SplashScreen } from "expo-router";
+import { useColorScheme } from "nativewind";
 
 export default function Page() {
-	const [appIsReady, setAppIsReady] = useState(false);
+	const { colorScheme, toggleColorScheme } = useColorScheme();
+
 	const [fontsLoaded, fontError] = useFonts({
 		"tabler-icons": require("../assets/tabler/tabler-icons.ttf"),
 	});
@@ -34,11 +36,37 @@ export default function Page() {
 	}
 
 	return (
-		<View className="dark:bg-background h-full">
+		<View
+			style={
+				colorScheme === "dark" ? darkStyle.container : lightStyle.container
+			}
+		>
 			<Navbar />
-			<Text className="text-text">Hello!</Text>
-
+			<Text style={colorScheme === "dark" ? darkStyle.text : lightStyle.text}>
+				Hello!
+			</Text>
 			<StatusBar />
 		</View>
 	);
 }
+
+export const lightStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "#d0d0d0",
+		color: "#151414",
+	},
+	text: {
+		color: "#151414",
+	},
+});
+
+export const darkStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "#151414",
+	},
+	text: {
+		color: "#d0d0d0",
+	},
+});

@@ -1,21 +1,43 @@
 import { ReactNode } from "react";
-import { Text, Pressable } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
+import { useColorScheme } from "nativewind";
 
 export function NavigationButton({
 	onPress,
 	icon,
-	className,
 }: {
 	onPress: () => void;
 	icon?: ReactNode;
-	className?: string;
 }) {
+	const { colorScheme } = useColorScheme();
+
 	return (
 		<Pressable
 			onPress={onPress}
-			className={`bg-white border border-border dark:border-red-400 rounded p-2 px-3 ${className}`}
+			style={[
+				button.container,
+				colorScheme === "dark" ? button.dark : button.light,
+			]}
 		>
-			{icon ? icon : <Text>Bakary</Text>}
+			{icon}
 		</Pressable>
 	);
 }
+
+const button = StyleSheet.create({
+	container: {
+		width: 36,
+		height: 36,
+		borderRadius: 6,
+		padding: 4,
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	light: {
+		backgroundColor: "#c9c9c9",
+	},
+	dark: {
+		backgroundColor: "#1f1f1f",
+	},
+});
